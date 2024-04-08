@@ -1,12 +1,10 @@
 const express = require("express");
 const route = express.Router();
+const authFile = require("../controllers/auth")
 
-route.get("/",(req,res)=>{
-      res.send("register")
-})
-route.get("/login",(req,res)=>{
-    res.send("login")
-})
+
+route.get("/",authFile().registerController)
+route.get("/login",authFile().loginController)
 route.get("/dashboard",(req,res)=>{
     res.send("Welome to dashboard page")
 })

@@ -2,9 +2,9 @@ require("dotenv").config()
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 8888;
-const allwebroutes = require("./routes/web")
+const allWebRoutes = require("./routes/web")
 
-app.use("",allwebroutes)
+app.use("",allWebRoutes)
 
 
 app.listen(PORT,()=>{
