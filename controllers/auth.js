@@ -3,7 +3,7 @@
     return {
     registerController(req,res)
     {
-        res.send("registration done")
+        res.render("register.ejs");
     },
     loginController(req,res)
     {
