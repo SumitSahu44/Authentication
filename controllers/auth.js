@@ -1,13 +1,36 @@
+const {v4: uuidv4} =  require('uuid');
+// uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
+const userModel = require('../models/user')
+const {setUser} = require('../service/auth') 
  function authController()
  {
     return {
     registerController(req,res)
     {
-        res.render("register.ejs");
+        res.render("register");
     },
-    loginController(req,res)
+     async userregisterController(req,res)
     {
-        res.send("login done")
+        const {name,email,password} = req.body;
+        
+       await userModel.create({name,email,password})
+       res.render('dashboard')
+    },
+    async loginController(req,res)
+    {
+        const {email,password} = req.body;
+        
+        const user = await userModel.findOne({email,password})
+       
+        if(!user){
+            return res.render('login', {
+                error: "Invalid username or password"
+            })
+        }
+        const sessionId = uuidv4(); 
+        setUser(sessionId, user);
+        res.cookie("uid", sessionId);
+        return  res.redirect('dashboard')
     }
 
   }
