@@ -12,7 +12,7 @@ route.get('/login', (req,res)=>{
    
     res.render('login');
 })
-route.post("/login",authFile().loginController)
+route.post("/login",authFile().loginController) /* login roue with post method */
 route.get("/dashboard",restrictToLoggedinUserOnly,(req,res)=>{
     res.render('dashboard');
 })
