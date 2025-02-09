@@ -5,6 +5,7 @@ const {setUser} = require('../service/auth')
  function authController()
  {
     return {
+     // register controller 
     registerController(req,res)
     {
         res.render("register");
