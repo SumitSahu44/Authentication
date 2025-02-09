@@ -17,6 +17,7 @@ const {setUser} = require('../service/auth')
        await userModel.create({name,email,password})
        res.render('dashboard')
     },
+     // login controller 
     async loginController(req,res)
     {
         const {email,password} = req.body;
