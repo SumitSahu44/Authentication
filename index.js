@@ -13,7 +13,7 @@ app.use(cookieParser())
 app.use(expressLayouts);
 app.set('view engine', 'ejs') // required to set  ejs , pug different types of template engine
 
-app.use("",allWebRoutes)
+app.use("",allWebRoutes) // for all routes 
 
 
 app.listen(PORT,()=>{
