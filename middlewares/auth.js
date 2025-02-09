@@ -1,6 +1,7 @@
 const {getUser} = require('../service/auth')
 async function restrictToLoggedinUserOnly(req, res, next)
 {
+    // middleware for checking user is already register or not 
     const userUid = req.cookies?.uid;
     if(!userUid) return  res.redirect('login')
 
